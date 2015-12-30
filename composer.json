@@ -34,7 +34,7 @@
             "App\\Views\\": "app/views",
             "App\\Models\\": "app/models",
             "App\\Watchdog\\": "app/watchdog",
-            "App\\Lib\\": "app/lib",
+            "App\\Lib\\": "app/lib"
         }
     },
     "config": {
