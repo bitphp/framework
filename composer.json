@@ -4,7 +4,7 @@
     "description": "Light PHP Framework for dummies",
     "keywords": ["php", "framework", "mvc", "oop", "small", "light"],
     "homepage": "http://bitphp.root404.com",
-    "version": "5.0.0",
+    "version": "5.0.0-stable",
     "license": "GPL-2.0+",
     "authors": [      
         {
