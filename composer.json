@@ -1,0 +1,43 @@
+{
+    "name": "bitphp/framework",
+    "type": "project",
+    "description": "Light PHP Framework for dummies",
+    "keywords": ["php", "framework", "mvc", "oop", "small", "light"],
+    "homepage": "http://bitphp.root404.com",
+    "version": "5.0.0",
+    "license": "GPL-2.0+",
+    "authors": [      
+        {
+            "name":"Eduardo Becerril Romero",
+            "email":"eduardo@root404.com",
+            "homepage":"http://root404.com",
+            "role":"Developer"
+        }
+    ],
+    "support": {
+        "email": "support@root404.com"
+    },
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/bitphp/framework"
+    },
+    "require": {
+        "php":">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": { 
+            "Bitphp\\Core\\": "bitphp/bitphp-core",
+            "Bitphp\\Base\\": "bitphp/bitphp-base",
+            "Bitphp\\Http\\": "bitphp/bitphp-http",
+            "App\\Controllers\\": "app/controllers",
+            "App\\Listeners\\": "app/listeners",
+            "App\\Views\\": "app/views",
+            "App\\Models\\": "app/models",
+            "App\\Watchdog\\": "app/watchdog",
+            "App\\Lib\\": "app/lib",
+        }
+    },
+    "config": {
+        "preferred-install": "source"
+    }
+}
