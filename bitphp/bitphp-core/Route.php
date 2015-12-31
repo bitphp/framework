@@ -8,7 +8,7 @@
       protected static $base_path;
       protected static $base_url;
 
-      public static function getBaseUrl() 
+      public static function baseUrl() 
       {
 
          if(self::$base_url)
@@ -23,6 +23,16 @@
          self::$base_url = $base_url;
 
          return self::$base_url;
+      }
+
+      public static function link($route)
+      {
+         $pretty = Config::param('route.pretty-urls');
+
+         if(true === $pretty)
+            return self::baseUrl() . $route;
+
+         return self::baseUrl() . "/index.php?_url=$route";
       }
 
       public static function basepath()

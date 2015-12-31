@@ -1,3 +1,4 @@
 {
-   "views.cache": false
+   "views.cache": false,
+   "route.pretty-urls": false
 }

@@ -12,7 +12,7 @@
 <body>
    <div id="global-container">
       <div id="global" align="center">
-         <img id="logo" src="<?php echo \Bitphp\Core\Route::getBaseUrl() ?>/public/img/bitphp.png">
+         <img id="logo" src="<?php echo \Bitphp\Core\Route::baseUrl() ?>/public/img/bitphp.png">
       </div>
    </div>
 </body>
