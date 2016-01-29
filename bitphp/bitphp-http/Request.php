@@ -102,11 +102,12 @@
          $array = trim(self::uri(), '/');
          $array = explode('/', $array);
 
-         if (!empty($array))
+         if (!empty($array)) {
             self::$requested_uri_array = $array;
+            return $array;
+         }
 
          self::$requested_uri_array = array();
-
          return self::$requested_uri_array;
       }
 

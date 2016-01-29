@@ -30,7 +30,7 @@
             405 => 'Method Not Allowed',
             410 => 'Gone',
             415 => 'Unsupported Media Type',
-            422 => 'Unprocessable Entity ',
+            422 => 'Unprocessable Entity',
             429 => 'Too Many Requests',
             500 => 'Internal Server Error'
          ];
