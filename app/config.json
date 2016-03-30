@@ -3,5 +3,7 @@
    "db.pass": "your_p4ss",
    "db.host": "localhost",
    "medusa.cache": false,
-   "medusa.cache.life": 300
+   "medusa.cache.life": 300,
+   "views.cache": false,
+   "views.cache.life": 300
 }

@@ -1,40 +1,39 @@
 <?php 
+namespace Bitphp;
 
-   namespace Bitphp;
+/**
+ *    This file is part of Bitphp Framework
+ *    @author  Eduardo B Romero <ms7rbeta@gmail.com>
+ *    @license GNU/GPL v2
+ */
+class Config 
+{
+   protected static $params;
 
-   class Config 
+   protected static function load() 
    {
-      protected static $params;
+      if(self::$params !== null) return;
 
-      protected static function load() 
-      {
-         if(self::$params !== null)
-           return;
+      $file = '../app/config.json';
 
-         $file = '../app/config.json';
-
-         if(file_exists($file)) {
-            $content = file_get_contents($file);
-            self::$params = json_decode($content, true);
-            return;
-         }
-
-         self::$params = array();
+      if(file_exists($file)) {
+         $content = file_get_contents($file);
+         self::$params = json_decode($content, true);
+         return;
       }
 
-      public static function param($index) 
-      {
-         self::load();
-         return isset(self::$params[$index]) ? self::$params[$index] : null;
-      }
-
-      public static function set($index, $value) 
-      {
-         self::$params[$index] = $value;
-      }
-
-      public static function all() 
-      {
-         return self::$params;
-      }
+      self::$params = array();
    }
+
+   public static function param($index) 
+   {
+      self::load();
+      return isset(self::$params[$index]) ? self::$params[$index] : null;
+   }
+
+   public static function all() 
+   {
+      self::load();
+      return self::$params;
+   }
+}

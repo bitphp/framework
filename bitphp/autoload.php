@@ -1,5 +1,11 @@
 <?php
 
+/**
+ *    This file is part of Bitphp Framework
+ *    @author  Eduardo B Romero <ms7rbeta@gmail.com>
+ *    @license GNU/GPL v2
+ */
+
 class Autoload
 {
     protected $prefixes = array();

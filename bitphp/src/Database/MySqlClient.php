@@ -1,96 +1,103 @@
 <?php
+namespace Bitphp\Database;
 
-   namespace Bitphp\Databases;
+use \PDO;
 
-   use \PDO;
+/**
+ *    This file is part of Bitphp Framework
+ *    @author  Eduardo B Romero <ms7rbeta@gmail.com>
+ *    @license GNU/GPL v2
+ */
+class MySqlClient extends Model 
+{
+   private static $stmt;
+   private static $table;
+   protected static $error;
+   protected static $pdo;
 
-   class MySqlClient extends Model {
+   public static function connect($dbname) 
+   {
+      self::loadConfiguration();
 
-      protected $pdo;
-      protected $error;
-      protected $table;
+      if(self::$pdo !== null) return;
 
-      public function connect($dbname) {
-         $dbname = $this->alias($dbname);
-         $connection = 'mysql:host=' . $this->host . ";dbname=$dbname;charset=utf8";
-         $this->pdo  = new PDO($connection, $this->user, $this->pass);
-      }
-
-      public function execute($query) {
-         $query = str_replace('\\', '\\\\', $query);
-         $this->statement = $this->pdo->query($query);
-         $error = $this->pdo->errorInfo()[2];
-
-         if($error === null)
-            return true;
-
-         $this->error = $error;
-         return false;
-      }
-
-      public function error() {
-         return $this->error;
-      }
-
-      public function result() {
-         if(($error = $this->error())) {
-            trigger_error($error);
-            return false;
-         }
-         
-         return $this->statement->fetchAll(PDO::FETCH_ASSOC);
-      }
-
-      public function table($table) {
-         $this->table = $table;
-      }
-
-      public function create($item) {
-         if($this->table === null)
-            trigger_error('Unespecified table name', E_USER_ERROR);
-
-         $keys   = array();
-         $values = array();
-
-         foreach ($item as $key => $value) {
-            $keys[] = $key;
-            $values[] = "'$value'";
-         }
-
-         $keys   = implode(',', $keys);
-         $values = implode(',', $values);
-
-         return $this->execute("INSERT INTO $this->table ($keys) VALUES ($values)");
-      }
-
-      public function find($match='', $fields=null) {
-         if($this->table === null)
-            trigger_error('Unespecified table name', E_USER_ERROR);
-
-         $fields = $fields === null ? '*' : implode(',', $fields);
-         $match  = $match  !== '' ? "where $match" : '';
-
-         return $this->execute("SELECT $fields FROM $this->table $match");
-      }
-
-      public function update($item, $match) {
-         if($this->table === null)
-            trigger_error('Unespecified table name', E_USER_ERROR);
-
-         $values = array();
-
-         foreach ($item as $key => $value) {
-            $values[] = "$key='$value'";
-         }
-
-         $values = implode(',', $values);
-         return $this->execute("UPDATE $this->table SET $values WHERE $match");
-      }
-
-      public function delete($match) {
-         if($this->table === null)
-            trigger_error('Unespecified table name', E_USER_ERROR);
-
-         return $this->execute("DELETE FROM $this->table WHERE $match");
-      }
+      $dbname = self::alias($dbname);
+      $connection = 'mysql:host=' . self::$host . ";dbname=$dbname;charset=utf8";
+      self::$pdo  = new PDO($connection, self::$user, self::$pass);
    }
+
+   public static function execute($query) 
+   {
+      $query = str_replace('\\', '\\\\', $query);
+      self::$stmt  = self::$pdo->query($query);
+      self::$error = self::$pdo->errorInfo()[2];
+   }
+
+   public static function result() 
+   {
+      if(self::$error) return false;
+      return self::$stmt->fetchAll(PDO::FETCH_ASSOC);
+   }
+
+   public static function table($table) 
+   {
+      self::$table = $table;
+   }
+
+   public static function create($item) 
+   {
+      if(self::$table === null)
+         trigger_error('Unespecified table name', E_USER_ERROR);
+
+      $keys   = array();
+      $values = array();
+
+      foreach ($item as $key => $value) {
+         $keys[] = $key;
+         $values[] = "'$value'";
+      }
+
+      $keys   = implode(',', $keys);
+      $values = implode(',', $values);
+
+      self::execute('INSERT INTO ' . self::$table . "($keys) VALUES ($values)");
+      return self::$error === null ? true : false;
+   }
+
+   public static function find($match='', $fields=null) 
+   {
+      if(self::$table === null)
+         trigger_error('Unespecified table name', E_USER_ERROR);
+
+      $fields = $fields === null ? '*' : implode(',', $fields);
+      $match  = $match  !== '' ? "WHERE $match" : '';
+
+      self::execute("SELECT $fields FROM " . self::$table . " $match");
+      return self::result();
+   }
+
+   public static function update($match, $item) 
+   {
+      if(self::$table === null)
+         trigger_error('Unespecified table name', E_USER_ERROR);
+
+      $values = array();
+
+      foreach ($item as $key => $value) {
+         $values[] = "$key='$value'";
+      }
+
+      $values = implode(',', $values);
+      self::execute('UPDATE ' . self::$table . " SET $values WHERE $match");
+      return self::$error === null ? true : false;
+   }
+
+   public function delete($match) 
+   {
+      if(self::$table === null)
+         trigger_error('Unespecified table name', E_USER_ERROR);
+
+      self::execute('DELETE FROM ' . self::$table . " WHERE $match");
+      return self::$error === null ? true : false;
+   }
+}

@@ -1,101 +1,63 @@
 <?php
+namespace Bitphp\Layout;
 
-   namespace Bitphp\Layout;
+use \Bitphp\Cache;
+use \Bitphp\Layout\Medusa\Compiler;
 
-   use \Bitphp\Layout\Medusa\Cache;
-   use \Bitphp\Layout\Medusa\Compiler;
+/**
+ *    This file is part of Bitphp Framework
+ *    @author  Eduardo B Romero <ms7rbeta@gmail.com>
+ *    @license GNU/GPL v2
+ */
+class Medusa
+{
+  protected static $view_vars = array();
 
-   class Medusa
-   {
-      /** variables para las vistas */
-      protected $vars = array();
-      /** resultado de la vista */
-      protected $output = '';
-      /** la vista antes de evaluarse */
-      protected $source = '';
+  protected static function source($view)
+  {
+    $view_file = "../app/views/sources/$view.medusa.php";
 
-      protected function clean() 
-      {
-         $this->source  = '';
-         $this->output  = '';
-         $this->vars    = array();
-      }
+    if(!file_exists($view_file))
+      trigger_error("Medusa: template $view_file do not exists", E_USER_ERROR);
 
+    return Compiler::parse(file_get_contents($view_file));
+  }
 
-      protected function make()
-      {
-         if(empty($this->loaded)) {
-            trigger_error("no data was loaded", E_USER_ERROR);
-            return;
-         }
+  protected static function template_include($view)
+  {
+    self::draw($view, self::$view_vars);
+  }
 
-         $cache_id = md5(json_encode(array($this->loaded, $this->vars)));
-         $this->output = Cache::read($cache_id);
+  protected static function make($view, $vars)
+  {
+    $cache_id = md5(json_encode(array($view, $vars)));
+    $output = Cache::read('medusa', $cache_id);
 
-         if(false !== $this->output)
-            return;
+    if(false !== $output) return $output;
 
-         $this->readSources();
+    self::$view_vars = $vars;
+    $source = self::source($view);
 
-         ob_start();
+    ob_start();
+    extract($vars);
+    eval("?> $source <?php ");
 
-         extract($this->vars);
-         eval("?> $this->source <?php ");
+    Cache::save('medusa', $cache_id, ($output = ob_get_clean()));
+    return $output;
+  }
 
-         $this->output = ob_get_clean();
+  public static function debug($view)
+  {
+    echo htmlentities(self::source($view));
+  }
 
-         Cache::save($cache_id, $this->output);
-      }
+  public static function draw($view, $vars=array())
+  {
+    echo self::make($view, $vars);
+  }
 
-      protected function readSources()
-      {
-         foreach ($this->loaded as $view) {
-            $view_file = "../app/views/sources/$view.medusa.php";
-
-            if(!file_exists($view_file)) {
-              trigger_error("View $view_file dont exists", E_USER_ERROR);
-              return $this;
-            }
-
-            $this->source .= Compiler::parse(file_get_contents($view_file));
-         }
-         
-         return $this;
-      }
-
-      protected function includer($view)
-      {
-        $medusa = new Medusa();
-        
-        $medusa
-          ->load($view)
-          ->with($this->vars)
-          ->draw();
-
-        $medusa = null;
-      }
-
-      public function load($view)
-      {
-         $this->loaded[] = $view;
-         return $this;
-      }
-
-      public function with($vars) 
-      {
-         $this->vars = $vars;
-         return $this;
-      }
-
-      public function draw() 
-      {
-        $this->make();
-        echo $this->output;
-      }
-
-      public function read() 
-      {
-        $this->make();
-        return $this->output;
-      }
-   }
+  public static function read($view, $vars=array())
+  {
+    return self::make($view, $vars);
+  }
+}
