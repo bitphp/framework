@@ -17,7 +17,7 @@ class Url
 
       $dirname   = dirname($_SERVER['PHP_SELF']);
       $base_url  = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
-      $base_url .= $_SERVER['SERVER_NAME'];
+      $base_url .= $_SERVER['HTTP_HOST'];
       $base_url .= $dirname == '/' ? '' : $dirname;
          
       return (self::$base_url = $base_url);

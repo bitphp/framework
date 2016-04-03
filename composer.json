@@ -4,7 +4,7 @@
     "description": "Light PHP Framework for dummies",
     "keywords": ["php", "framework", "mvc", "oop", "small", "light"],
     "homepage": "http://bitphp.root404.com",
-    "version": "6.0-stable",
+    "version": "6.0.1-stable",
     "license": "GPL-2.0+",
     "authors": [      
         {
@@ -22,15 +22,16 @@
         "url":"https://github.com/bitphp/framework"
     },
     "require": {
-        "php":">=5.4.0"
+        "php":">=5.4.0",
+        "gargron/fileupload": "^1.1"
     },
     "autoload": {
         "psr-4": { 
-            "Bitphp\\": "../bitphp/src",
-            "Models\\": "../app/models",
-            "Controllers\\": "../app/controllers",
-            "Views\\": "../app/views",
-            "Components\\": "../app/components"
+            "Bitphp\\": "bitphp/src",
+            "Models\\": "app/models",
+            "Controllers\\": "app/controllers",
+            "Views\\": "app/views",
+            "Components\\": "app/components"
         }
     },
     "config": {
