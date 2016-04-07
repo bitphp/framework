@@ -12,8 +12,8 @@ Visita la [página de documentación][bitphp-docs] para ver temas de instalació
 
 # Créditos
 
-[Eduardo] - programador original de Bitphp.
-Fernando - por codificar un Syntax Highlighter del lenguaje Medusa para editores de texto.
+- [Eduardo], programador original de Bitphp.
+- Fernando, por codificar un Syntax Highlighter del lenguaje Medusa para editores de texto.
 
 Gracias a:
 
