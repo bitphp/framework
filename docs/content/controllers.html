@@ -1,0 +1,317 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controladores &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Http" href="http.html"/>
+        <link rel="prev" title="Enrutamiento" href="router.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Instalación</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">Enrutamiento</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Controladores</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enlazar-ruta">Enlazar ruta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definicion-de-un-controlador">Definición de un controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros-de-la-ruta">Parametros de la ruta</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Cliente MySql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medusa.html">Motor de Plantillas Medusa</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Controladores</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controladores">
+<h1>Controladores<a class="headerlink" href="#controladores" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="#linking-route"><span class="std std-ref">Enlazar ruta</span></a></li>
+<li><a class="reference internal" href="#definition"><span class="std std-ref">Definición de un controlador</span></a></li>
+<li><a class="reference internal" href="#route-params"><span class="std std-ref">Parametros de la ruta</span></a></li>
+</ul>
+<div class="section" id="enlazar-ruta">
+<span id="linking-route"></span><h2>Enlazar ruta<a class="headerlink" href="#enlazar-ruta" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En lugar de una función (callback) puedes enlazar un controlador a una ruta. <code class="docutils literal"><span class="pre">Route::match($route,</span> <span class="pre">$controller)</span></code>, en donde <code class="docutils literal"><span class="pre">$route</span></code> es la ruta para enlazar, ver <a class="reference external" href="router.html">enrutamiento</a>, y <code class="docutils literal"><span class="pre">$controller</span></code> es una cadena con el formato <code class="docutils literal"><span class="pre">controlador&#64;función</span></code>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user/logout&#39;</span><span class="p">,</span> <span class="s1">&#39;user@logout&#39;</span><span class="p">);</span>
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;POST /user/login&#39;</span><span class="p">,</span> <span class="s1">&#39;user@login&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="definicion-de-un-controlador">
+<span id="definition"></span><h2>Definición de un controlador<a class="headerlink" href="#definicion-de-un-controlador" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los controladores se crean en la carpeta <code class="docutils literal"><span class="pre">app/controllers</span></code>, el controlador <strong>debe</strong> ser nombrado en <em>uppercase</em>, ej. <code class="docutils literal"><span class="pre">app/controllers/User.php</span></code>, <strong>debe</strong> contener una clase con el mismo nombre del archivo y <strong>debe</strong> pertenecer al espacio de nombres <code class="docutils literal"><span class="pre">\Controllers</span></code>, y sus métodos <strong>deben</strong> ser estaticos y de acceso público:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="c1">// app/controllers/User.php</span>
+
+<span class="k">namespace</span> <span class="nx">Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">logout</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">login</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Puedes usar los controladores directamente a través de la clase <code class="docutils literal"><span class="pre">\Controllers\NombreDelControlador</span></code> y la auto-carga de Bitphp se encargará de incluir el archivo del controlador:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user/logout&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">\Controllers\User</span><span class="o">::</span><span class="na">login</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parametros-de-la-ruta">
+<span id="route-params"></span><h2>Parametros de la ruta<a class="headerlink" href="#parametros-de-la-ruta" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El <code class="docutils literal"><span class="pre">$callback</span></code> tradicional de la ruta recibe los parametros solicitados a través de parametros en la función, para la función del controlador qué se llama es exactamente lo mismo:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user/$user_id/photo/$photo_id&#39;</span><span class="p">,</span> <span class="s1">&#39;user@photo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">photo</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">,</span> <span class="nv">$photo_id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="http.html" class="btn btn-neutral float-right" title="Http" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="router.html" class="btn btn-neutral" title="Enrutamiento" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

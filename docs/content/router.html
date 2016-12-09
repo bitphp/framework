@@ -1,0 +1,449 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enrutamiento &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Controladores" href="controllers.html"/>
+        <link rel="prev" title="Primeros pasos" href="first-steps.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Instalación</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Enrutamiento</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enrutamiento-basico">Enrutamiento básico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metodos-http-para-enrutamiento">Métodos Http para enrutamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rutas-con-parametros">Rutas con parametros</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#micro-validacion-de-parametros">Micro validación de parametros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validacion-de-parametros-con-patrones-regulares">Validación de parametros con patrones regulares</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#agrupamiento-de-rutas">Agrupamiento de rutas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ruta-por-defecto">Ruta por defecto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Cliente MySql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medusa.html">Motor de Plantillas Medusa</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Enrutamiento</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enrutamiento">
+<h1>Enrutamiento<a class="headerlink" href="#enrutamiento" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="#basics"><span class="std std-ref">Enrutamiento básico</span></a></li>
+<li><a class="reference internal" href="#methods"><span class="std std-ref">Métodos Http para enrutamiento</span></a></li>
+<li><a class="reference internal" href="#parametters"><span class="std std-ref">Rutas con parametros</span></a></li>
+<li><a class="reference internal" href="#micro-validating"><span class="std std-ref">Micro validación de parametros</span></a></li>
+<li><a class="reference internal" href="#regular-validating"><span class="std std-ref">Validación de parametros con patrones regulares</span></a></li>
+<li><a class="reference internal" href="#route-grouping"><span class="std std-ref">Agrupamiento de rutas</span></a></li>
+<li><a class="reference internal" href="#default-route"><span class="std std-ref">Ruta por defecto</span></a></li>
+</ul>
+<div class="section" id="enrutamiento-basico">
+<span id="basics"></span><h2>Enrutamiento básico<a class="headerlink" href="#enrutamiento-basico" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las rutas son definidas dentro del archivo <code class="docutils literal"><span class="pre">html/index.php</span></code>, utilizando el método estatico <code class="docutils literal"><span class="pre">match($route,</span> <span class="pre">$callback)</span></code> de la clase <code class="docutils literal"><span class="pre">\Bitphp\Route</span></code>, este método provee de una manera sencilla de organizar y procesar las peticiones:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /hello&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">echo</span> <span class="s2">&quot;Hello world!&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metodos-http-para-enrutamiento">
+<span id="methods"></span><h2>Métodos Http para enrutamiento<a class="headerlink" href="#metodos-http-para-enrutamiento" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El parametro <code class="docutils literal"><span class="pre">$route</span></code> es un string compuesto por <code class="docutils literal"><span class="pre">&quot;&lt;HTTP-METHOD&gt;</span> <span class="pre">/URL/PATH&quot;</span></code>, es decir, el método Http y el path de la url al los cuales responde la ruta.</p>
+<p>Es necesario indicar el método http al qué responde la ruta, ya qué pueden existir 2 rutas qué buscan el mismo path pero para diferente método Http:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /users&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="c1">// GET example.com/users</span>
+<span class="p">});</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;POST /users&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="c1">// POST example.com/users</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Si no estas familiarizado con los métodos Http puedes <a class="reference external" href="http://trevinca.ei.uvigo.es/~txapi/espanol/proyecto/superior/memoria/node46.html">leer más en este enlace.</a></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">La definición de la ruta, método y path, <strong>deben ir separados por un espacio</strong>, el método Http no es <em>case sensitive</em> por lo qué puede ir en mayúsculas o minúsculas.</p>
+</div>
+</div>
+<div class="section" id="rutas-con-parametros">
+<span id="parametters"></span><h2>Rutas con parametros<a class="headerlink" href="#rutas-con-parametros" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si necesitas capturar datos de los fragmentos de la URI solo define dichos fragmentos como parametros en la ruta:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /profile/$user_id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+<span class="p">});</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /profile/$user_id/post/$post_id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">,</span> <span class="nv">$post_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="section" id="micro-validacion-de-parametros">
+<span id="micro-validating"></span><h3>Micro validación de parametros<a class="headerlink" href="#micro-validacion-de-parametros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Puedes hacer qué el parametro definido solo acepte cierto tipo de valores, caracteres numericos, caracteres <em>palabra</em>, o cualquierer caracter.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /profile/$user_id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// $user_id, acepta cualquier tipo de caracteres</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /profile/str$user_id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// $user_id, acepta caracteres &quot;palabra&quot; (\w+)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /profile/int$user_id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// $user_id, acepta solo caracteres numericos ([0-9]+)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="validacion-de-parametros-con-patrones-regulares">
+<span id="regular-validating"></span><h3>Validación de parametros con patrones regulares<a class="headerlink" href="#validacion-de-parametros-con-patrones-regulares" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Puedes usar directamente patrones regulares para la validación de los parametros:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /email/(\w+\@\w+\.\w+)&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$email</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="agrupamiento-de-rutas">
+<span id="route-grouping"></span><h2>Agrupamiento de rutas<a class="headerlink" href="#agrupamiento-de-rutas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Esto permite agrupar un conjunto de rutas qué comparten un prefijo común, por ej. <code class="docutils literal"><span class="pre">/api/v1/user</span></code>, <code class="docutils literal"><span class="pre">/api/v1/post</span></code>, <code class="docutils literal"><span class="pre">/api/v1/profile</span></code>, con la finalidad de tener un mejor orden.</p>
+<p>Se usa <code class="docutils literal"><span class="pre">Route::group($prefix,</span> <span class="pre">$callback)</span></code> para la agrupación, <code class="docutils literal"><span class="pre">$prefix</span></code> sería el prefijo común de las rutas y <code class="docutils literal"><span class="pre">$callback</span></code> una función anonima para definir las rutas agrupadas:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;/api/v1&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+
+   <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+      <span class="c1">// get example.com/api/v1</span>
+   <span class="p">});</span>
+
+   <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+      <span class="c1">// get example.com/api/v1/user</span>
+   <span class="p">});</span>
+
+   <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;POST /&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+      <span class="c1">// post example.com/api/v1</span>
+   <span class="p">});</span>
+
+   <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;POST /user&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+      <span class="c1">// post example.com/api/v1/user</span>
+   <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>También se puede realizar una sub-agrupación de rutas:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;/api&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+
+   <span class="nx">Route</span><span class="o">::</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;/v1&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+
+      <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+         <span class="c1">// get example.com/api/v1/user</span>
+      <span class="p">});</span>
+
+      <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;POST /user&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+         <span class="c1">// post example.com/api/v1/user</span>
+      <span class="p">});</span>
+   <span class="p">});</span>
+
+   <span class="nx">Route</span><span class="o">::</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;/v2&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+
+      <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+         <span class="c1">// get example.com/api/v2/user</span>
+      <span class="p">});</span>
+
+      <span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;POST /user&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+         <span class="c1">// post example.com/api/v2/user</span>
+      <span class="p">});</span>
+   <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ruta-por-defecto">
+<span id="default-route"></span><h2>Ruta por defecto<a class="headerlink" href="#ruta-por-defecto" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se puede ejecutar un <code class="docutils literal"><span class="pre">$callback</span></code> para cuando la ruta solicitada no coincide con ninguna de las rutas definidas, con el método <code class="docutils literal"><span class="pre">Route::ifNotMatch($callback)</span></code>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">ifNotMatch</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$requested_path</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">echo</span> <span class="s2">&quot;404: Element </span><span class="si">$requested_path</span><span class="s2"> not found :(&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="controllers.html" class="btn btn-neutral float-right" title="Controladores" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="first-steps.html" class="btn btn-neutral" title="Primeros pasos" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

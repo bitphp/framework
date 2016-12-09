@@ -1,0 +1,511 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Http &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Modelos" href="models.html"/>
+        <link rel="prev" title="Controladores" href="controllers.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Instalación</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">Enrutamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Http</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#request">Request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parametros-post">Parametros post</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametros-get">Parametros get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lectura-de-cookies">Lectura de cookies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lectura-de-cabeceras-http">Lectura de cabeceras Http</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otros-metodos-http-de-entrada">Otros métodos Http de entrada</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#response">Response</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#estado-de-respuesta">Estado de respuesta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formato-de-respuesta">Formato de respuesta</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#responder-en-formato-json">Responder en formato JSON</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#responder-en-formato-xml">Responder en formato XML</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Cliente MySql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medusa.html">Motor de Plantillas Medusa</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Http</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="http">
+<h1>Http<a class="headerlink" href="#http" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul>
+<li><p class="first"><a class="reference internal" href="#request"><span class="std std-ref">Request</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#request-get"><span class="std std-ref">Parametros get</span></a></li>
+<li><a class="reference internal" href="#request-post"><span class="std std-ref">Parametros post</span></a></li>
+<li><a class="reference internal" href="#request-cookie"><span class="std std-ref">Lectura de cookies</span></a></li>
+<li><a class="reference internal" href="#request-header"><span class="std std-ref">Lectura de cabeceras Http</span></a></li>
+<li><a class="reference internal" href="#request-other"><span class="std std-ref">Otros métodos Http de entrada</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#response"><span class="std std-ref">Response</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#response-status"><span class="std std-ref">Estado de respuesta</span></a></li>
+<li><a class="reference internal" href="#response-format"><span class="std std-ref">Formato de respuesta</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="request">
+<span id="id1"></span><h2>Request<a class="headerlink" href="#request" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Lee datos (formularios, cookies, headers, etc.) de la petición a través de la clase <code class="docutils literal"><span class="pre">\Bitphp\Http\Request</span></code>, desde alguna ruta o controlador. Este tipo de parametros los lees normalmente por medio de las variables <code class="docutils literal"><span class="pre">$_GET</span></code>, <code class="docutils literal"><span class="pre">$_POST</span></code> o <code class="docutils literal"><span class="pre">$_COOKIE</span></code>, la diferencia es que con Bitphp estas son filtradas para evitar posibles fallos de seguridad.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Http\Request</span><span class="p">;</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span> <span class="c1">// $_POST[&#39;foo&#39;]</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Http\Request</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyController</span> <span class="p">{</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nv">$foo</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span> <span class="c1">// $_POST[&#39;foo&#39;]</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="parametros-post">
+<span id="request-post"></span><h3>Parametros post<a class="headerlink" href="#parametros-post" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Request::post(string</span> <span class="pre">$index</span> <span class="pre">[,</span> <span class="pre">bool</span> <span class="pre">$filter=true])</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="c1">// ...</span>
+   <span class="nv">$foo</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span> <span class="c1">// $_POST[&#39;foo&#39;]</span>
+   <span class="c1">// ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parametros-get">
+<span id="request-get"></span><h3>Parametros get<a class="headerlink" href="#parametros-get" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Request::get(string</span> <span class="pre">$index</span> <span class="pre">[,</span> <span class="pre">bool</span> <span class="pre">$filter=true])</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="c1">// ...</span>
+   <span class="nv">$bar</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span> <span class="c1">// $_GET[&#39;bar&#39;]</span>
+   <span class="c1">// ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lectura-de-cookies">
+<span id="request-cookie"></span><h3>Lectura de cookies<a class="headerlink" href="#lectura-de-cookies" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Request::cookie(string</span> <span class="pre">$index</span> <span class="pre">[,</span> <span class="pre">bool</span> <span class="pre">$filter=true])</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="c1">// ...</span>
+   <span class="nv">$bar</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">cookie</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span> <span class="c1">// $_COOKIE[&#39;bar&#39;]</span>
+   <span class="c1">// ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lectura-de-cabeceras-http">
+<span id="request-header"></span><h3>Lectura de cabeceras Http<a class="headerlink" href="#lectura-de-cabeceras-http" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Request::header(string</span> <span class="pre">$index</span> <span class="pre">[,</span> <span class="pre">bool</span> <span class="pre">$filter=true])</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="c1">// ...</span>
+   <span class="nv">$content_type</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;content-type&#39;</span><span class="p">);</span>
+   <span class="c1">// ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="otros-metodos-http-de-entrada">
+<span id="request-other"></span><h3>Otros métodos Http de entrada<a class="headerlink" href="#otros-metodos-http-de-entrada" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Request::input(string</span> <span class="pre">$index</span> <span class="pre">[,</span> <span class="pre">bool</span> <span class="pre">$filter=true])</span></code></p>
+<p>Php no tiene una forma de recibir parametros por medio de otros metodos http (put, patch, delete, etc) como lo hace con <em>get</em> y <em>post</em>, sin embargo con bitphp, si los parametros qué quieres recibir son enviados por algún otro <em>método http</em>, usa <code class="docutils literal"><span class="pre">\Bitphp\Http\Request::input()</span></code>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="c1">// ...</span>
+   <span class="nv">$foo</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">input</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+   <span class="c1">// ...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>Si deseas qué las variables de entrada no sean filtradas pasa el segundo parametro para <code class="docutils literal"><span class="pre">post()</span></code>, <code class="docutils literal"><span class="pre">get()</span></code> y <code class="docutils literal"><span class="pre">input()</span></code> como <code class="docutils literal"><span class="pre">false</span></code>:</p>
+<div class="last highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+<span class="nv">$foo</span> <span class="o">=</span> <span class="nx">Request</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="c1">// ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="response">
+<span id="id2"></span><h2>Response<a class="headerlink" href="#response" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Puedes utilizar la clase <code class="docutils literal"><span class="pre">\Bitphp\Http\Response</span></code>, principalmente para indicar los estados de respuesta (404, 500, etc.) o enviar tipos de datos especiales (xml o json).</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Http\Response</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">ifNotMatch</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">Response</span><span class="o">::</span><span class="na">status</span><span class="p">(</span><span class="mi">404</span><span class="p">);</span>
+   <span class="k">echo</span> <span class="s2">&quot;404 Not Found&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Http\Response</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ErrorPages</span> <span class="p">{</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">notFound</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Response</span><span class="o">::</span><span class="na">status</span><span class="p">(</span><span class="mi">404</span><span class="p">);</span>
+      <span class="k">echo</span> <span class="s2">&quot;404 Not Found&quot;</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="estado-de-respuesta">
+<span id="response-status"></span><h3>Estado de respuesta<a class="headerlink" href="#estado-de-respuesta" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Response::status(int</span> <span class="pre">$code)</span></code></p>
+<p>Usa el método <code class="docutils literal"><span class="pre">Response::status()</span></code>, para setear la cabecera de estado que deseas enviar, <code class="docutils literal"><span class="pre">$code</span></code> es el numero correspondiente al mensaje de estado, los estados disponibles son:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Codigo</th>
+<th class="head">Mensaje de Estado</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200</td>
+<td>OK</td>
+</tr>
+<tr class="row-odd"><td>201</td>
+<td>Created</td>
+</tr>
+<tr class="row-even"><td>202</td>
+<td>Accepted</td>
+</tr>
+<tr class="row-odd"><td>204</td>
+<td>No content</td>
+</tr>
+<tr class="row-even"><td>301</td>
+<td>Moved Permanently</td>
+</tr>
+<tr class="row-odd"><td>302</td>
+<td>Found</td>
+</tr>
+<tr class="row-even"><td>303</td>
+<td>See other</td>
+</tr>
+<tr class="row-odd"><td>304</td>
+<td>Not Modified</td>
+</tr>
+<tr class="row-even"><td>400</td>
+<td>Bad Request</td>
+</tr>
+<tr class="row-odd"><td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr class="row-even"><td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr class="row-odd"><td>404</td>
+<td>Not Found</td>
+</tr>
+<tr class="row-even"><td>405</td>
+<td>Method Not Allowed</td>
+</tr>
+<tr class="row-odd"><td>410</td>
+<td>Gone</td>
+</tr>
+<tr class="row-even"><td>415</td>
+<td>Unsupported Media Type</td>
+</tr>
+<tr class="row-odd"><td>422</td>
+<td>Unprocessable Entity</td>
+</tr>
+<tr class="row-even"><td>429</td>
+<td>Too Many Requests</td>
+</tr>
+<tr class="row-odd"><td>500</td>
+<td>Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="formato-de-respuesta">
+<span id="response-format"></span><h3>Formato de respuesta<a class="headerlink" href="#formato-de-respuesta" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las aplicaciónes restful son una tendencia actualmente, es común qué estas API&#8217;s respondan en formatos Json o Xml.</p>
+<div class="section" id="responder-en-formato-json">
+<h4>Responder en formato JSON<a class="headerlink" href="#responder-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Response::json(mixed</span> <span class="pre">$data)</span></code></p>
+<p>Para este método <code class="docutils literal"><span class="pre">$data</span></code> puede ser un array, o un string en formato json, las cabeceras necesarias son seteadas automaticamente para qué el cliente sepa que es una respuesta en formato json.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="k">use</span> <span class="nx">\Bitphp\Http\Response</span><span class="p">;</span>
+
+   <span class="nx">Response</span><span class="o">::</span><span class="na">json</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span>
+      <span class="p">,</span> <span class="s1">&#39;baz&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;quux&#39;</span>
+   <span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="k">use</span> <span class="nx">\Bitphp\Http\Response</span><span class="p">;</span>
+
+   <span class="nx">Response</span><span class="o">::</span><span class="na">json</span><span class="p">(</span><span class="s1">&#39;{&quot;foo&quot;:&quot;bar&quot;,&quot;quux&quot;:true}&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="responder-en-formato-xml">
+<h4>Responder en formato XML<a class="headerlink" href="#responder-en-formato-xml" title="Enlazar permanentemente con este título">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Http\Response::xml(string</span> <span class="pre">$data)</span></code></p>
+<p>Para enviar una respuesta del tipo xml <code class="docutils literal"><span class="pre">$data</span></code> debe ser explicitamente una cadena en formato xml.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+   <span class="k">use</span> <span class="nx">\Bitphp\Http\Response</span><span class="p">;</span>
+
+   <span class="nx">Response</span><span class="o">::</span><span class="na">json</span><span class="p">(</span><span class="s2">&quot;&lt;foo&gt;&lt;bar&gt;quux&lt;/bar&gt;&lt;/foo&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="models.html" class="btn btn-neutral float-right" title="Modelos" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="controllers.html" class="btn btn-neutral" title="Controladores" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

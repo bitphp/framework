@@ -1,0 +1,557 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cliente MySql &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Otros manejadores" href="other-dbs.html"/>
+        <link rel="prev" title="Modelos" href="models.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Instalación</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">Enrutamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cliente MySql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conexion-del-modelo-a-mysql">Conexión del modelo a MySql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crud">CRUD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#seleccionar-tabla">Seleccionar tabla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-anadir-registros">Create (añadir registros)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-leer-registros">Read (leer registros)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-actualizar-registros">Update (actualizar registros)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-borrar-registros">Delete (borrar registros)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#otras-consultas">Otras consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#errores-de-consulta">Errores de consulta</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medusa.html">Motor de Plantillas Medusa</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Cliente MySql</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cliente-mysql">
+<h1>Cliente MySql<a class="headerlink" href="#cliente-mysql" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul>
+<li><p class="first"><a class="reference internal" href="#auto-mysql-conn"><span class="std std-ref">Conexión del modelo a MySql</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#crud"><span class="std std-ref">CRUD</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#select-table"><span class="std std-ref">Seleccionar tabla</span></a></li>
+<li><a class="reference internal" href="#create"><span class="std std-ref">Create (añadir registros)</span></a></li>
+<li><a class="reference internal" href="#read"><span class="std std-ref">Read (leer registros)</span></a></li>
+<li><a class="reference internal" href="#update"><span class="std std-ref">Update (actualizar registros)</span></a></li>
+<li><a class="reference internal" href="#delete"><span class="std std-ref">Delete (borrar registros)</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#other-queries"><span class="std std-ref">Otras consultas</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#query-errors"><span class="std std-ref">Errores de consulta</span></a></p>
+</li>
+</ul>
+<div class="section" id="conexion-del-modelo-a-mysql">
+<span id="auto-mysql-conn"></span><h2>Conexión del modelo a MySql<a class="headerlink" href="#conexion-del-modelo-a-mysql" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::connect(string</span> <span class="pre">$dbname)</span></code></p>
+<p>Extiende tu modelo a la clase <code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient</span></code> para conectar de manera sencilla a una base de datos MySql:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">find</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// connect to &quot;system&quot; db</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;system&#39;</span><span class="p">);</span>
+      <span class="c1">// ...</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="crud">
+<span id="id1"></span><h2>CRUD<a class="headerlink" href="#crud" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="seleccionar-tabla">
+<span id="select-table"></span><h3>Seleccionar tabla<a class="headerlink" href="#seleccionar-tabla" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::table(string</span> <span class="pre">$tbl_name)</span></code></p>
+<p>Elije la tabla en la cual se van a ejecutar las consultas del CRUD:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span> <span class="c1">// El crud trabajará sobre la tabla &quot;users&quot;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">find</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-anadir-registros">
+<span id="create"></span><h3>Create (añadir registros)<a class="headerlink" href="#create-anadir-registros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::create(array</span> <span class="pre">$registro)</span></code></p>
+<p>Añade un nuevo registro a la tabla seleccionada, <code class="docutils literal"><span class="pre">$regitsro</span></code> es un array en formato <code class="docutils literal"><span class="pre">array('clave'</span> <span class="pre">=&gt;</span> <span class="pre">'valor')</span></code>, para poder ser traducido a <code class="docutils literal"><span class="pre">&quot;INSERT</span> <span class="pre">INTO</span> <span class="pre">FOO(clave)</span> <span class="pre">VALUES</span> <span class="pre">('valor')&quot;</span></code>, retorna <code class="docutils literal"><span class="pre">true</span></code> si el registro fue creado y <code class="docutils literal"><span class="pre">false</span></code> en caso de error.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span> <span class="c1">// El crud trabajará sobre la tabla &quot;users&quot;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$edad</span><span class="p">,</span> <span class="nv">$correo</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// INSERT INTO users (nombre, edad, correo) VALUES (&#39;$nombre&#39;, &#39;$edad&#39;, &#39;$correo&#39;)</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+           <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$nombre</span>
+         <span class="p">,</span> <span class="s1">&#39;edad&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$edad</span>
+         <span class="p">,</span> <span class="s1">&#39;correo&#39;</span> <span class="o">=&gt;</span> <span class="nv">$correo</span>
+      <span class="p">));</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-leer-registros">
+<span id="read"></span><h3>Read (leer registros)<a class="headerlink" href="#read-leer-registros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::find([,</span> <span class="pre">string</span> <span class="pre">$match,</span> <span class="pre">array</span> <span class="pre">$fields])</span></code></p>
+<p>Método qué permite leer registros, el parametro opcional <code class="docutils literal"><span class="pre">$match</span></code> sirve para delimitar por medio de condicionales la lectura de los campos y el parametro opcional <code class="docutils literal"><span class="pre">$fields</span></code> delimita los campos qué van a ser leídos, retorna un array con los campos, un array vacio si no hay campos o <code class="docutils literal"><span class="pre">false</span></code> en caso de error.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span> <span class="c1">// El crud trabajará sobre la tabla &quot;users&quot;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// SELECT * FROM users</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">find</span><span class="p">();</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findOne</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// SELECT * FROM users WHERE id=&#39;$id&#39;</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="s2">&quot;id=&#39;</span><span class="si">$id</span><span class="s2">&#39;&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findAllPersonalInfo</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// SELECT name, edad FROM users</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">));</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findOnePersonalInfo</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// SELECT name, edad FROM users WHERE id=&#39;$id&#39;</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="s2">&quot;id=&#39;</span><span class="si">$id</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">));</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">auth</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$pass</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// SELECT * FROM users WHERE (user=&#39;$user&#39; OR email=&#39;$user&#39;) AND pass=&#39;$pass&#39;</span>
+      <span class="nv">$match</span> <span class="o">=</span> <span class="s2">&quot;(user=&#39;</span><span class="si">$user</span><span class="s2">&#39; OR email=&#39;</span><span class="si">$user</span><span class="s2">&#39;) AND pass=&#39;</span><span class="si">$pass</span><span class="s2">&#39;&quot;</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$match</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-actualizar-registros">
+<span id="update"></span><h3>Update (actualizar registros)<a class="headerlink" href="#update-actualizar-registros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::find(string</span> <span class="pre">$match,</span> <span class="pre">array</span> <span class="pre">$item)</span></code></p>
+<p>Actualiza el los campos del registro coincidente con la condicional <code class="docutils literal"><span class="pre">$match</span></code>, los campos a actualizar son <code class="docutils literal"><span class="pre">$item</span></code> de la forma <code class="docutils literal"><span class="pre">array('campo'</span> <span class="pre">=&gt;</span> <span class="pre">'nuevo_valor')</span></code>, retorna <code class="docutils literal"><span class="pre">true</span></code> si se actualizó el registro o <code class="docutils literal"><span class="pre">false</span></code> si hubo algún error:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span> <span class="c1">// El crud trabajará sobre la tabla &quot;users&quot;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">updateName</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="nv">$new_name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// UPDATE users SET (nombre=&#39;$new_name&#39;) WHERE id=&#39;$id&#39;</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">update</span><span class="p">(</span><span class="s2">&quot;id=&#39;</span><span class="si">$id</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+         <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$new_name</span>
+      <span class="p">));</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-borrar-registros">
+<span id="delete"></span><h3>Delete (borrar registros)<a class="headerlink" href="#delete-borrar-registros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::delete(string</span> <span class="pre">$match)</span></code></p>
+<p>Elimina el registro que coincida con la condicional <code class="docutils literal"><span class="pre">$match</span></code>, retorna <code class="docutils literal"><span class="pre">true</span></code> si se elimmino el registro o <code class="docutils literal"><span class="pre">false</span></code> si hubo algún error:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span> <span class="c1">// El crud trabajará sobre la tabla &quot;users&quot;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// DELETE FROM users WHERE id=&#39;$id&#39;</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">delete</span><span class="p">(</span><span class="s2">&quot;id=&#39;</span><span class="si">$id</span><span class="s2">&#39;&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="otras-consultas">
+<span id="other-queries"></span><h2>Otras consultas<a class="headerlink" href="#otras-consultas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::execute(string</span> <span class="pre">$query)</span></code></p>
+<p>Ejecuta la consulta <code class="docutils literal"><span class="pre">$query</span></code> en la base de datos.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::result()</span></code></p>
+<p>Retorna el valor obtenido de una consulta de selección, un <code class="docutils literal"><span class="pre">array</span></code> si la consulta de selección fue correcta o <code class="docutils literal"><span class="pre">false</span></code> en caso de error.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users&quot;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">result</span><span class="p">();</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="errores-de-consulta">
+<span id="query-errors"></span><h2>Errores de consulta<a class="headerlink" href="#errores-de-consulta" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Database\MySqlClient::error()</span></code></p>
+<p>Si algúna consulta falla (retorna <code class="docutils literal"><span class="pre">false</span></code>), ya sea con el CRUD (<code class="docutils literal"><span class="pre">create()</span></code>, <code class="docutils literal"><span class="pre">find()</span></code>, <code class="docutils literal"><span class="pre">update()</span></code>, <code class="docutils literal"><span class="pre">delete()</span></code>) o con una consulta directa (<code class="docutils literal"><span class="pre">execute()</span></code>) puedes mostrar el error y salir:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Database\MySqlClient</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Users</span> <span class="k">extends</span> <span class="nx">MySqlClient</span> <span class="p">{</span>
+
+   <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users&quot;</span><span class="p">);</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="k">null</span> <span class="o">!==</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$error</span><span class="p">)</span>
+         <span class="nb">trigger_error</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$error</span><span class="p">,</span> <span class="nx">E_USER_ERROR</span><span class="p">);</span>
+
+      <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">result</span><span class="p">();</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">findOne</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// SELECT * FROM users WHERE id=&#39;$id&#39;</span>
+      <span class="nv">$user</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="s2">&quot;id=&#39;</span><span class="si">$id</span><span class="s2">&#39;&quot;</span><span class="p">);</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$user</span><span class="p">)</span>
+         <span class="nb">trigger_error</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$error</span><span class="p">,</span> <span class="nx">E_USER_ERROR</span><span class="p">);</span>
+
+      <span class="k">return</span> <span class="nv">$user</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="na">init</span><span class="p">();</span>
+
+      <span class="c1">// DELETE FROM users WHERE id=&#39;$id&#39;</span>
+      <span class="nv">$done</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">delete</span><span class="p">(</span><span class="s2">&quot;id=&#39;</span><span class="si">$id</span><span class="s2">&#39;&quot;</span><span class="p">);</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$done</span><span class="p">)</span>
+         <span class="nb">trigger_error</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$error</span><span class="p">,</span> <span class="nx">E_USER_ERROR</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="other-dbs.html" class="btn btn-neutral float-right" title="Otros manejadores" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="models.html" class="btn btn-neutral" title="Modelos" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

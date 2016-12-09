@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Bitphp | Framework For Dummies</title>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="Framework para el desarrollo web, orientado a la creación rápida de aplicaciones web, aún si tienes pocos conocimientos en ello.">
+   <meta name="keywords" content="framework, bitphp, php, web, desarrollo, template, mvc, hmvc, sockets, minimalista, ligero, veloz, dummies, dummy">
+   <meta name="copyright" content="Copyright © 2016 Eduardo B Romero">
+   <meta name="author" content="Eduardo Becerril Romero">
+   <meta name="designer" content="Eduardo Becerril Romero">
+   <meta name="robots" content="index, follow">
+   <meta name="googlebot" content="index, follow">
+   <meta property="og:title" content="Bitphp | Framework for dummies">
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="http://bitphp.root404.com">
+   <meta property="og:image" content="http://bitphp.root404.com/img/cover.png">
+   <meta property="og:site_name" content="Bitphp">
+   <meta property="fb:admins" content="100002286632555">
+   <meta property="og:description" content="Framework para el desarrollo web, orientado a la creación rápida de aplicaciones web, aún si tienes pocos conocimientos en ello.">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+   <link rel="stylesheet" type="text/css" href="css/theme.css">
+   <link rel="shortcut icon" href="http://bitphp.root404.com/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="http://bitphp.root404.com/favicon.ico" type="image/x-icon">
+   <script type="text/javascript" src="js/jquery.js"></script>
+   <script type="text/javascript" src="js/typed.js"></script>
+   <script type="text/javascript" src="js/app.js"></script>
+   <style type="text/css">
+      html, body {
+         width: 100%;
+         height: 100%;
+         margin: 0;
+         padding: 0;
+      }
+   </style>
+</head>
+<body>
+
+   <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+         <div class="navbar-header">
+            <a class="navbar-brand" href="#home">
+               <span><img alt="Brand" src="img/bit-icon-25.png"></span>
+               <span class="navbar-title">Bitphp Framework</span>
+            </a>
+         </div>
+         <div class="navbar-form navbar-right">
+            <form class="form-inline" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+               <input type="hidden" name="cmd" value="_xclick">
+               <input type="hidden" name="business" value="paypal@root404.com">
+               <input type="hidden" name="item_name" value="Ayuda para el desarrollo y mejora de BitPHP">
+               <input type="hidden" name="currency_code" value="USD">
+               <input type="hidden" name="no_shipping" value="1">
+               <input type="hidden" name="return" value="http://bitphp.root404.com/#greats">
+               <input type="hidden" name="cancel_return" value="http://bitphp.root404.com">
+               <div class="form-group">
+                  <div class="input-group">
+                     <div class="input-group-addon">$</div>
+                     <input class="form-control" name="amount" type="number" value="2" min="1"/>
+                     <div class="input-group-addon">USD</div>
+                  </div>
+                  <button type="submit" class="btn btn-default">Donar</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </nav>
+   <div class="navbar-padding"></div>
+   <div class="sections-container">
+
+      <section class="dom section-padded" id="sections-home">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="typed-container" align="center">
+                  <span id="typed"></span>
+                  <span id="conn-animation" class="typed-cursor">Connecting...</span>
+               </div>
+            </div>
+            <div class="row">
+               <div class="links-container" align="center">
+                  <a href="./docs">#Documentación</a>
+                  <a href="#help-us">#Contribuye</a>
+                  <a href="#about" class="dom" id="sections-home-aboutLink">#Acerca de</a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="dom section-hide" id="sections-help">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-10 col-lg-offset-1">
+                  <a href="#home">#Inicio</a>
+                  <a href="./docs">#Documentación</a>
+                  <a href="#about">#Acerca de</a>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-10 col-md-offset-1">
+                  <h2><span class="purple">#</span>Ayuda a Bitphp</h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-5 col-md-offset-1">
+                  <h4>Desarrolladores</h4>
+                  <p>
+                     Si eres desarrollador y encuentras un error o una mejor manera de hacer las cosas en el código fuente de Bitphp, no debes dudar en compartir tus soluciones con la comunidad.
+                  </p>
+                  <p style="text-align:center;">
+                     <a href="https://github.com/bitphp" target="__blank" class="btn-link">#Ver en Github</a>
+                     <a href="/docs/content/contrib-guide.html" class="btn-link">#Guía de contribución</a>
+                  </p>
+                  <h4>Usuarios</h4>
+                  <p>
+                     Usas o estás comenzando a usar Bitphp y te das cuenta de qué algunos de sus componentes "complican" las cosas en lugar de facilitarlas, <span class="purple">puedes ayudar dando tu opinion</span> y de esta manera mejorar Bitphp. Puedes enviar tu comentario al correo eléctronico <a class="normal-link" href="mailto:bitphp@root404.com">bitphp@root404.com</a>, estaremos esperando tu mensaje.
+                  </p>
+               </div>
+               <div class="col-md-5">
+                  <h4>Difunde</h4>
+                  <p>
+                     Si tienes influencia en el mundo de <span class="purple">php y la programación</span>, si eres una empresa, haces tutoriales, tienes una fanpage, un blog, etc. Habla a tus seguidores sobre Bitphp, crea material didactico, difunde tutoriales... ¡Puedes ayudar bastante!
+                  </p>
+                  <br>
+                  <div align="center">
+                     <h4>¿Quíenes están hablando de Bitphp?</h4>
+                     <div>
+                        <a href="http://root404.com" target="__blank">
+                           <img title="Root404 Co." src="img/contribs/root404.png">
+                        </a>
+                        <a href="https://www.facebook.com/EnterGeekTech/" target="__blank">
+                           <img title="EnterGeek" src="img/contribs/entergeek.png">
+                        </a>
+                        <a href="https://www.facebook.com/pvacademy/" target="__blank">
+                           <img title="PHP Virtual Academy" src="img/contribs/phpacademy.png">
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-10 col-md-offset-1" align="center">
+                  <br>
+                  <h2>¡Habla a tus colegas sobre Bitphp!</h2>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="dom section-hide" id="sections-about">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-10 col-lg-offset-1">
+                  <a href="#home">#Inicio</a>
+                  <a href="#help-us">#Contribuye</a>
+                  <a href="./docs">#Documentación</a>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-10 col-md-offset-1">
+                  <h2><span class="purple">#</span>Acerca de Bitphp</h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 col-md-offset-1">
+                  <p>
+                     Bitphp es un marco de trabajo (framework) para ayudar en el desarrollo de aplicaciónes web, sentando las bases y facilitando tareas comunes en tus proyectos. Existen muchas herramientas de este tipo disponibles por toda Internet, entonces <span class="purple">¿en qué es diferente a los demás?</span>
+                  </p>
+                  <p>
+                     <i>"El proyecto comenzó con la necesidad de tener un framework realmente fácil de usar, no quería pasar horas y horas leyendo la documentación, quería una herramienta qué sin conocimiento previo del tema me permita hacer lo que quiero hacer, una applicación web rápido." - Eduardo.</i>
+                  </p>
+                  <p>
+                     En sus inicios Bitphp tenía como objetivo ofrecer todo lo qué necesita una applicación web en tan solo 20 Kb, esto abligaría a minificar su complejidad, en la actualidad se han mejorado las herramientas, funciones y útilidades por lo que se excedio ese limite, pero, aún así pesa tan solo 50 Kb y no envidia nada a los demás frameworks. Cumple lo qué promete; Llevar a cabo tu proyecto de manera simple, sencilla, y rápida.
+                  </p>
+               </div>
+               <div class="col-md-4">
+                  <img src="img/window-1.png" class="img-responsive">
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="dom section-hide" id="sections-greats">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-10 col-lg-offset-1">
+                  <a href="#home">#Inicio</a>
+                  <a href="#help-us">#Contribuye</a>
+                  <a href="./docs">#Documentación</a>
+                  <a href="#about">#Acerca de</a>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-10 col-md-offset-1" align="center">
+                  <br>
+                  <h2><span class="purple">#</span>Gracias</h2>
+                  Tu donativo se recibió y será de gran ayuda.
+               </div>
+            </div>
+         </div>
+      </section>
+
+   </div>
+
+   <div class="container-fluid">
+      <div  class="row">
+         <div class="footer" align="center">
+            Bitphp &trade; Eduardo B Romero, <span class="purple"> &copy; Root404 Co.</span>
+         </div>
+      </div>
+   </div>
+
+   <script type="text/javascript">
+      App.init();
+
+      var start_typing = function() { $("#typed").typed({
+        strings: [
+         "Hola!",
+         "Eres desarrollador web?",
+         "Lenguaje? ^500 PHP?",
+         "Ya veo...",
+         "Vas a codear una app?",
+         "Un blog?",
+         "Una Api?",
+         "Algún sistema?",
+         "Bitphp te puede ayudar!",
+         "Como?",
+         "Controladores, vistas, modelos...",
+         "Tiene plantillas!",
+         "Eso y más...",
+         "En tan solo 50 Kb!",
+         "Usalo...",
+         "Descubrelo...",
+         "Bitphp Framework :)"
+         ],
+         typeSpeed: 30,
+         backDelay: 500,
+         cursorChar: '_',
+         callback: function(){
+            App.dom.sections.home.aboutLink.attr('style','text-decoration:underline;').toggleClass('typed-cursor');
+            setTimeout(function(){
+               App.dom.sections.home.aboutLink.toggleClass('typed-cursor');
+            }, 1000);
+         }
+        });
+      }
+
+      var hide_all_sections = function() {
+         App.dom.sections.home.fadeOut(500);
+         App.dom.sections.help.fadeOut(500);
+         App.dom.sections.about.fadeOut(500);
+         App.dom.sections.greats.fadeOut(500);
+      }
+
+      setTimeout(function() {
+         $("#conn-animation").removeClass('typed-cursor').fadeOut(500);
+         setTimeout(start_typing, 600);
+      }, 2000);
+
+      App.route.match('help-us', function(){
+         hide_all_sections();
+         setTimeout(function(){ App.dom.sections.help.fadeIn(500); }, 600);
+      });
+
+      App.route.match('about', function() {
+         hide_all_sections();
+         setTimeout(function(){ App.dom.sections.about.fadeIn(500); }, 600);
+      });
+
+      App.route.match('home', function() {
+         hide_all_sections();
+         setTimeout(function(){ App.dom.sections.home.fadeIn(500); }, 600);
+      });
+
+      App.route.match('greats', function() {
+         hide_all_sections();
+         setTimeout(function(){ App.dom.sections.greats.fadeIn(500); }, 600);
+      });
+   </script>
+</body>
+</html>

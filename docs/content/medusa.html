@@ -1,0 +1,692 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Motor de Plantillas Medusa &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Sistema de cache" href="cache.html"/>
+        <link rel="prev" title="Vistas" href="views.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Instalación</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">Enrutamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Cliente MySql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="views.html">Vistas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motor de Plantillas Medusa</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crear-una-plantilla">Crear una plantilla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mostrar-una-plantilla">Mostrar una plantilla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enviar-parametros-a-las-plantillas">Enviar parametros a las plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#el-lenguaje-medusa">El lenguaje Medusa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#short-echo">Short echo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-array">Short array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bloques-de-control">Bloques de control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilidades">Utilidades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#herencia">Herencia</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#incluir-plantillas-dentro-de-otras">Incluir plantillas dentro de otras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache-de-plantillas">Cache de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debug-de-plantillas">Debug de plantillas</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Motor de Plantillas Medusa</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="motor-de-plantillas-medusa">
+<h1>Motor de Plantillas Medusa<a class="headerlink" href="#motor-de-plantillas-medusa" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul>
+<li><p class="first"><a class="reference internal" href="#template-creation"><span class="std std-ref">Crear una plantilla</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#template-draw"><span class="std std-ref">Mostrar una plantilla</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#template-params"><span class="std std-ref">Enviar parametros a las plantillas</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#medusa-lang"><span class="std std-ref">El lenguaje Medusa</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#short-echo"><span class="std std-ref">Short echo</span></a></li>
+<li><a class="reference internal" href="#short-array"><span class="std std-ref">Short array</span></a></li>
+<li><a class="reference internal" href="#control-blocks"><span class="std std-ref">Bloques de control</span></a></li>
+<li><a class="reference internal" href="#utilities"><span class="std std-ref">Utilidades</span></a></li>
+<li><a class="reference internal" href="#inheritance"><span class="std std-ref">Herencia</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#template-include"><span class="std std-ref">Incluir plantillas dentro de otras</span></a></p>
+</li>
+</ul>
+<div class="section" id="crear-una-plantilla">
+<span id="template-creation"></span><h2>Crear una plantilla<a class="headerlink" href="#crear-una-plantilla" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La clase <code class="docutils literal"><span class="pre">\Bitphp\Layout\Medusa</span></code> permite el manejo de plantillas con un lenguaje simple y elegante, para reducir el trabajo al usar php embebido en html. Las plantillas se crean en la carpeta <code class="docutils literal"><span class="pre">/app/views/sources</span></code> y <strong>deben</strong> tener la extensión <code class="docutils literal"><span class="pre">&lt;nombre&gt;.medusa.php</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">/app/views/sources/hello.medusa.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;h1&gt;Hello world!&lt;/h1&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mostrar-una-plantilla">
+<span id="template-draw"></span><h2>Mostrar una plantilla<a class="headerlink" href="#mostrar-una-plantilla" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Layout\Medusa::draw(string</span> <span class="pre">$template[,</span> <span class="pre">array</span> <span class="pre">$args])</span></code></p>
+<p>El método estatico <code class="docutils literal"><span class="pre">Views::draw()</span></code> recibe como primer parametro el nombre de la plantilla <strong>sin extensión</strong> y la muestra (<code class="docutils literal"><span class="pre">echo</span></code>):</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Medusa</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span> <span class="c1">// muestra app/views/sources/hello.medusa.php</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enviar-parametros-a-las-plantillas">
+<span id="template-params"></span><h2>Enviar parametros a las plantillas<a class="headerlink" href="#enviar-parametros-a-las-plantillas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Layout\Medusa::draw(string</span> <span class="pre">$template[,</span> <span class="pre">array</span> <span class="pre">$args])</span></code></p>
+<p>Envia en el segundo parametro (el cual es opcional) un arreglo de la forma <code class="docutils literal"><span class="pre">array('parametro'</span> <span class="pre">=&gt;</span> <span class="pre">'valor')</span></code> y dentro de la plantilla podrás usar el parametro como una variable <code class="docutils literal"><span class="pre">$parametro</span></code>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Medusa</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /:name&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">/app/views/sources/hello.medusa.php</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello {{ $name }}!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="el-lenguaje-medusa">
+<span id="medusa-lang"></span><h2>El lenguaje Medusa<a class="headerlink" href="#el-lenguaje-medusa" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="short-echo">
+<span id="id1"></span><h3>Short echo<a class="headerlink" href="#short-echo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">{{</span> <span class="pre">$string</span> <span class="pre">}}</span></code></p>
+<p>En lugar de hacer esto <code class="docutils literal"><span class="pre">&lt;div&gt;&lt;?php</span> <span class="pre">echo</span> <span class="pre">$string</span> <span class="pre">?&gt;&lt;/div&gt;</span></code> al usar plantillas Medusa puedes hacer <code class="docutils literal"><span class="pre">{{</span> <span class="pre">$string</span> <span class="pre">}}</span></code>:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Foo: {{ $string }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="short-array">
+<span id="id2"></span><h3>Short array<a class="headerlink" href="#short-array" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">$array.key</span></code></p>
+<p>Puedes acceder a los elementos de un array facilmente con <code class="docutils literal"><span class="pre">$array.key</span></code>, equivalente a <code class="docutils literal"><span class="pre">$array['key']</span></code>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="c1">//...</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+           <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Barney&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;age&#39;</span>  <span class="o">=&gt;</span> <span class="mi">25</span>
+      <span class="p">)</span>
+   <span class="p">));</span>
+<span class="c1">//...</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/views/sources/profile.view.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello {{ $user.name }}, you are {{ $user.age }} years old!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">No es recursivo, es decir, solo funciona para los primeros elementos, ejemplo, para <code class="docutils literal"><span class="pre">$user['info']['name']</span></code> <strong>NO</strong> se puede hacer <code class="docutils literal"><span class="pre">$user.info.name</span></code>.</p>
+</div>
+</div>
+<div class="section" id="bloques-de-control">
+<span id="control-blocks"></span><h3>Bloques de control<a class="headerlink" href="#bloques-de-control" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>Bloque If</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">statements</span><span class="o">&gt;</span>
+<span class="p">:</span><span class="n">elseif</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">statements</span><span class="o">&gt;</span>
+<span class="p">:</span><span class="k">else</span>
+   <span class="o">&lt;</span><span class="n">statements</span><span class="o">&gt;</span>
+<span class="p">:</span><span class="n">endif</span>
+</pre></div>
+</div>
+<p>Reduce notablemente la sintaxis del bloque if, la condición se plantea justo como se hace tradicionalmente con <code class="docutils literal"><span class="pre">&lt;?php</span> <span class="pre">if(&lt;condition&gt;):</span> <span class="pre">?&gt;</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   :if $user.age &gt;= 18
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Eres mayor de edad!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   :endif
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   :if $user.age &gt;= 18
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Eres mayor de edad!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   :else
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Eres menor de edad!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   :endif
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   :if $user.age &gt; 18
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Eres mayor de edad!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   :elseif $user.age == 18
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Acabas de convertirte en adulto!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   :else
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Eres menor de edad!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   :endif
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Bloque For</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="k">for</span> <span class="n">expr1</span><span class="p">;</span> <span class="n">expr2</span><span class="p">;</span> <span class="n">expr3</span>
+   <span class="o">&lt;</span><span class="n">statements</span><span class="o">&gt;</span>
+<span class="p">:</span><span class="n">endfor</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span>&lt;ul&gt;
+   :for $i=1; $i&lt;=10; $i++
+      &lt;li&gt;Numero: {{ $i }}&lt;/li&gt;
+   :endfor
+&lt;/ul&gt;
+</pre></div>
+</div>
+<p><strong>Bloque Foreach</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>:foreach $array as $valor
+   &lt;statements&gt;
+:endforeach
+</pre></div>
+</div>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>:foreach $array as $clave =&gt; $valor
+   &lt;statements&gt;
+:endforeach
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="c1">//...</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;fruits&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+           <span class="s1">&#39;mango&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;sandia&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;zanahoria&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;gato&#39;</span>
+      <span class="p">)</span>
+   <span class="p">));</span>
+<span class="c1">//...</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/views/sources/foo.medusa.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+   :foreach $fruits as $fruit
+      <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ $fruit }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   :endforeach
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilidades">
+<span id="utilities"></span><h3>Utilidades<a class="headerlink" href="#utilidades" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>Incluir ficheros CSS</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">css</span> <span class="n">fichero</span>
+</pre></div>
+</div>
+<p>Se traduce como <code class="docutils literal"><span class="pre">&lt;link</span> <span class="pre">rel=&quot;stylesheet&quot;</span> <span class="pre">href=&quot;http://example.com/static/css/fichero.css&quot;&gt;</span></code>. Para ello <em>fichero</em> debe ser accesible a través de <code class="docutils literal"><span class="pre">http://example.com/static/css/fichero.css</span></code>, <code class="docutils literal"><span class="pre">http://example.com</span></code> cambia automaticamente dependiendo del hostname de tu servidor.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      :css bootstrap
+      :css theme
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="c">&lt;!-- --&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Incluir ficheros JS</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">js</span> <span class="n">fichero</span>
+</pre></div>
+</div>
+<p>Se traduce como <code class="docutils literal"><span class="pre">&lt;script</span> <span class="pre">src=&quot;http://example.com/static/js/fichero.js&quot;&gt;</span></code>. Para ello <em>fichero</em> debe ser accesible a través de <code class="docutils literal"><span class="pre">http://example.com/static/js/fichero.js</span></code>, <code class="docutils literal"><span class="pre">http://example.com</span></code> cambia automaticamente dependiendo del hostname de tu servidor.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      :js jquery
+      :js app
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="c">&lt;!-- --&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Url base</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="nd">@baseurl</span>
+</pre></div>
+</div>
+<p>Es un string con la url base en la qué se encuentra funcionando bitphp, por ejemplo <code class="docutils literal"><span class="pre">http://example.com</span></code>, <code class="docutils literal"><span class="pre">https://my.app.com</span></code> o <code class="docutils literal"><span class="pre">http://example.com/bitphp</span></code>, etc.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ @baseurl }}/user/profile&quot;</span><span class="p">&gt;</span>Link a perfil de usuario<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="herencia">
+<span id="inheritance"></span><h3>Herencia<a class="headerlink" href="#herencia" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Crea una plantilla <em>base</em> a partir de la cual puedas crear plantillas qué hereden partes qué tienen en común.</p>
+<p><strong>Definición de bloques</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">block</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">content</span><span class="o">&gt;</span>
+<span class="p">:</span><span class="n">endblock</span>
+</pre></div>
+</div>
+<p>La plantilla base contendrá bloques qué podrán ser sobrescritos por las plantillas qué la hereden:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/views/sources/main.medusa.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Foo bar<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+      :block body
+         <span class="c">&lt;!-- default content --&gt;</span>
+      :endblock
+
+      :block footer
+         <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Esto aparece si la plantilla que hereda no indica este bloque.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      :endblock
+
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Extender a la plantilla principal</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">extends</span> <span class="o">&lt;</span><span class="n">template</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>La plantilla puede heredar a la principal escribiendo en la primer linea <code class="docutils literal"><span class="pre">:extends</span> <span class="pre">&lt;name&gt;</span></code>, y debe crear los bloques qué se van a sobrescribir de la plantilla principal.</p>
+<p>Por ejemplo, para extender a la plantilla <code class="docutils literal"><span class="pre">app/views/sources/main.medusa.php</span></code>:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>:extends main
+
+:block body
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Contenido para el bloque body!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+:endblock
+</pre></div>
+</div>
+<p>Entonces a partir de esta herencia la plantilla resultante se vería así:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Foo bar<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Contenido para el bloque body!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Esto aparece si la plantilla que hereda no indica este bloque.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Puede conservar el contenido del bloque de la pantilla principal indicandolo con <code class="docutils literal"><span class="pre">:parent</span></code> al inicio o final del bloque:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>:extends main
+
+:block body
+   :parent
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Contenido para el bloque body!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+:endblock
+</pre></div>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p><code class="docutils literal"><span class="pre">app/views/sources/main.medusa.php</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- app/views/sources/main.medusa.php --&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My Great Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+      :css foo-theme
+      :js my-script
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">navbar</span><span class="p">&gt;</span>
+         <span class="c">&lt;!-- foo --&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">navbar</span><span class="p">&gt;</span>
+
+      :block body
+         <span class="c">&lt;!-- default content --&gt;</span>
+      :endblock
+
+      <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>
+         <span class="c">&lt;!-- foo --&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">app/views/sources/profile.medusa.php</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>:extends main
+
+:block body
+   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello {{ $user.name }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Hoobies:<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+      :foreach $user.hoobies as $hooby
+         <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ $hooby }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      :endforeach
+   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+:endblock
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">app/views/sources/fruits.medusa.php</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>:extends main
+
+:block body
+   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Fruits:<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+      :foreach $fruits as $fruit
+         <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ $fruit }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      :endforeach
+   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+:endblock
+</pre></div>
+</div>
+<p>Ambas plantillas heredan a main, por lo tanto tendrán su estructura basica, header, los css incluidos, etc. ya qué solo sobrescriben el bloque <em>body</em>. Para usarlas:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Medusa</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user/:id/profile&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$user</span> <span class="o">=</span> <span class="nx">\Models\Users</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="c1">// just an example</span>
+
+   <span class="c1">// app/views/sources/profile.medusa.php</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /fruits&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="c1">// app/views/sources/fruits.medusa.php</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;fruits&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+           <span class="s1">&#39;perro&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;gato&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;caballo&#39;</span>
+      <span class="p">)</span>
+   <span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="incluir-plantillas-dentro-de-otras">
+<span id="template-include"></span><h2>Incluir plantillas dentro de otras<a class="headerlink" href="#incluir-plantillas-dentro-de-otras" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">:include</span> <span class="pre">&lt;template-name&gt;</span></code></p>
+<p>Este método permite insertar el contenido de una plantilla en otra, y así poder reutilizar código.</p>
+<p><code class="docutils literal"><span class="pre">app/views/sources/items/navbar.medusa.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;div class=&quot;navbar&quot;&gt;</span>
+<span class="x">   &lt;span class=&quot;navbar-title&quot;&gt;{{ $user.name }}&lt;/span&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">app/views/sources/profile.medusa.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
+<span class="x">   &lt;head&gt;</span>
+<span class="x">      &lt;title&gt;{{ $user.name }} profile&lt;/title&gt;</span>
+<span class="x">   &lt;/head&gt;</span>
+<span class="x">   &lt;body&gt;</span>
+<span class="x">      :include items/navbar</span>
+<span class="x">      &lt;div class=&quot;global-container&quot;&gt;</span>
+<span class="x">         About you: &lt;p&gt;{{ $user.about }}&lt;/p&gt;</span>
+<span class="x">      &lt;/div&gt;</span>
+<span class="x">   &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Medusa</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user/:id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$user</span> <span class="o">=</span> <span class="nx">\Models\Users</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span> <span class="c1">// just an example</span>
+   <span class="nx">Medusa</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Las plantillas incluidas tendrán acceso a los parametros qué fueron pasados a la vista principal.</p>
+</div>
+</div>
+<div class="section" id="cache-de-plantillas">
+<h2>Cache de plantillas<a class="headerlink" href="#cache-de-plantillas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las plantillas pueden usar un sistema de cache y ayudar a reducir la carga del servidor, para activarlo, en el archivo de configuración de la aplicación <code class="docutils literal"><span class="pre">/app/config.json</span></code>, indica el parametro <code class="docutils literal"><span class="pre">medusa.cache</span></code> como <code class="docutils literal"><span class="pre">true</span></code>, para desactivarlo colocalo como <code class="docutils literal"><span class="pre">false</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">/app/config.json</span></code></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;medusa.cache&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Puedes indicar el tiempo de vida de los ficheros de cache indicando los <strong>segundos</strong> antes de que el fichero de cache sea desechado, con el parametro de configuración <code class="docutils literal"><span class="pre">medusa.cache.life</span></code>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;medusa.cache&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="nt">&quot;medusa.cache.life&quot;</span><span class="p">:</span> <span class="mi">300</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="debug-de-plantillas">
+<h2>Debug de plantillas<a class="headerlink" href="#debug-de-plantillas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Layout\Medusa::debug(string</span> <span class="pre">$view)</span></code></p>
+<p>Compila la vista y la imprime con escapandola con <code class="docutils literal"><span class="pre">htmlentities()</span></code> para poder visualizarla como texto plano.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cache.html" class="btn btn-neutral float-right" title="Sistema de cache" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="views.html" class="btn btn-neutral" title="Vistas" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

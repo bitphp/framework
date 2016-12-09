@@ -1,0 +1,377 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Instalación &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Primeros pasos" href="first-steps.html"/>
+        <link rel="prev" title="Documentación de Bitphp" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-del-servidor">Configuración del servidor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nginx">Nginx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apache">Apache</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-via-composer">Instalación vía composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-via-git">Instalación vía Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comprobacion-de-la-instalacion">Comprobación de la instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#otras-configuraciones">Otras configuraciones</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">Enrutamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Cliente MySql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medusa.html">Motor de Plantillas Medusa</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Instalación</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="instalacion">
+<h1>Instalación<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="requisitos">
+<h2>Requisitos<a class="headerlink" href="#requisitos" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Servidor web Apache o Nginx</li>
+<li>PHP 5.4 o superior</li>
+<li>Git y/o Composer (para la instalación)</li>
+</ul>
+</div>
+<div class="section" id="configuracion-del-servidor">
+<h2>Configuración del servidor<a class="headerlink" href="#configuracion-del-servidor" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Primero hay qué crear una carpeta destinada a trabajar con bitphp, posteriormente configuraremos el servidor web para que sirva dicha carpeta. En nuestro caso estamos usando <em>Debian Jessie</em>, por lo tanto crearemos una carpeta en <code class="docutils literal"><span class="pre">/var/www/bitphp</span></code>, en la cual vamos a instalar Bitphp.</p>
+<div class="section" id="nginx">
+<h3>Nginx<a class="headerlink" href="#nginx" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul>
+<li><p class="first">Hay que lograr que <code class="docutils literal"><span class="pre">nginx</span></code> ejecute los archivos php, si aún no lo has hecho, aquí vamos; hay qué instalar el paquete <em>php5-fpm</em> con <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">php5-fpm</span></code>.</p>
+</li>
+<li><p class="first">Ahora hay qué hacer un pequeño cambio en la configuración de <em>PHP</em>, hay qué abrir el <em>php.ini</em>:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php5</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">php</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+<p>Encuentra la linea <em>cgi.fix_pathinfo=1</em>, y cambia el 1 por 0:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cgi</span><span class="o">.</span><span class="n">fix_pathinfo</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Ahora hay que hacer un pequeño cambio en la configuracion en el <em>php5-fpm</em>:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">php5</span><span class="o">/</span><span class="n">fpm</span><span class="o">/</span><span class="n">pool</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>Encuentra la linea <em>listen = 127.0.0.1:9000</em>, y cambia el <em>127.0.0.1:9000</em> por <em>/var/run/php5-fpm.sock</em></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">listen</span> <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">php5</span><span class="o">-</span><span class="n">fpm</span><span class="o">.</span><span class="n">sock</span>
+</pre></div>
+</div>
+<p>Reinicia el <em>php5-fpm</em>:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">php5</span><span class="o">-</span><span class="n">fpm</span> <span class="n">restart</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Hay que abrir el archivo para configurar el virtual host:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">default</span>
+</pre></div>
+</div>
+<p>Y configuramos el servidor para que, una vez instalado, Bitphp pueda funcionar correctamente:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>server {
+
+   listen   80;
+   server_name localhost;
+   root /var/www/bitphp/web;
+   index index.html index.htm index.php;
+
+   location / {
+      try_files $uri $uri/ /index.php?_url=$uri&amp;$args;
+   }
+
+   location ~ \.php {
+      fastcgi_pass unix:/var/run/php5-fpm.sock;
+      fastcgi_index /index.php;
+      include fastcgi_params;
+      fastcgi_split_path_info       ^(.+\.php)(/.+)$;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+   }
+
+   location ~ /\.ht {
+      deny all;
+   }
+}
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Y reiniciamos nginx:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">nginx</span> <span class="n">restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="apache">
+<h3>Apache<a class="headerlink" href="#apache" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una vez instalado <em>Apache</em> y que esté funcionando <em>PHP</em> solo hay un par de configuraciónes por hacer, primero vamos a editar el fichero de configuración del sitio:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apache2</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>Y dejamos la configuración de dicho archivo como:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+
+   ServerName localhost
+   ServerAdmin webmaster@localhost.com
+   DocumentRoot /var/www/bitphp/web
+   ErrorLog ${APACHE_LOG_DIR}/error.log
+   CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<p>Ahora hay qué activar el MOD_REWRITE para que el sistema de rutas de Bitphp funcione de manera correcta, para ello ejecutamos:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">a2enmod</span> <span class="n">rewrite</span>
+</pre></div>
+</div>
+<p>A continuación editas el archivo <code class="docutils literal"><span class="pre">/etc/apache2/apache2.conf</span></code> y buscas las líneas <strong>AllowOverride None</strong> y las cambias por <strong>AllowOverride All</strong></p>
+<p>Reiniciamos apache:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">apache2</span> <span class="n">restart</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="instalacion-via-composer">
+<h2>Instalación vía composer<a class="headerlink" href="#instalacion-via-composer" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay qué recordar que creamos la carpeta <code class="docutils literal"><span class="pre">/var/www/bitphp</span></code>, en esta instalaremos Bitphp vía composer con:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">create</span><span class="o">-</span><span class="n">project</span> <span class="n">bitphp</span><span class="o">/</span><span class="n">framework</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">bitphp</span> <span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">vcs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="instalacion-via-git">
+<h2>Instalación vía Git<a class="headerlink" href="#instalacion-via-git" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Simplemente clonamos el repositorio en la carpeta <code class="docutils literal"><span class="pre">/var/www/bitphp</span></code>, con el comando:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">bitphp</span><span class="o">/</span><span class="n">framework</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">bitphp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comprobacion-de-la-instalacion">
+<h2>Comprobación de la instalación<a class="headerlink" href="#comprobacion-de-la-instalacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>No importa si instalamos vía <em>composer</em> o con <em>git</em>, sobre <em>apache</em> o sobre <em>nginx</em>, ahora, al ir desde el navegador a la dorección <code class="docutils literal"><span class="pre">http://localhost</span></code>, podremos ver a Bitphp funcionando:</p>
+<img alt="../_images/install-ready.png" src="../_images/install-ready.png" />
+</div>
+<div class="section" id="otras-configuraciones">
+<h2>Otras configuraciones<a class="headerlink" href="#otras-configuraciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si en algún futuro no muy lejano se debe usar el sistema de cache de Bitphp deberás dar permisos de escritura a la carpeta <code class="docutils literal"><span class="pre">/var/www/bitphp/app/cache</span></code>:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="mi">777</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">bitphp</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">cache</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="first-steps.html" class="btn btn-neutral float-right" title="Primeros pasos" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Documentación de Bitphp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

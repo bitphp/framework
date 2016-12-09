@@ -1,0 +1,153 @@
+@font-face {
+   font-family: voltaire;
+   src: url(../fonts/Voltaire-Regular.ttf);
+}
+
+h1, h2, h3, h4 {
+   font-family: voltaire;
+}
+
+section {
+    width: 100%;
+    height: 70%;
+}
+
+a {
+   font-family: voltaire;
+   color: #6E28C9;
+   padding-right: 10px;
+}
+
+a:hover {
+  color: #6E28C9;
+}
+
+p {
+   text-align: justify;
+}
+
+.purple {
+   color: #6E28C9;
+}
+
+.sections-container {
+   min-height: 70%;
+}
+
+.section-hide {
+   display: none;
+}
+
+.section-padded {
+   padding: 50px 0px;
+}
+
+.navbar-default {
+   border: none;
+   border-radius: 0;
+   border-top: 2px solid #6E28C9;
+   background-color: #fff;
+   background-image: none !important;
+   box-shadow: none;
+   -webkit-box-shadow: none;
+   margin-bottom: 50px;
+   height: 90px;
+}
+
+.navbar-title {
+    font-size: 1.5em;
+    padding: 10px 15px;
+    font-family: voltaire;
+}
+
+.navbar-padding {
+   height: 150px;
+}
+
+.links-container {
+   margin-top: 25px;
+}
+
+.links-container a {
+   font-size: 25px;
+   font-family: voltaire;
+   color: #6E28C9;
+   padding: 10px 15px;
+}
+
+.typed-container {
+   font-size: 36px;
+   font-family: voltaire;
+   min-height: 52px;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+    color: #000;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.btn-link {
+  padding: 10px 15px;
+  color: #6E28C9;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.btn-link:hover {
+  color: #6E28C9;
+  text-decoration: underline;
+}
+.normal-link {
+  font-family: inherit;
+  padding: 0;
+}
+
+.btn-default {
+  background-image: none;
+  background-color: #6E28C9;
+  border: none;
+  color: #fff;
+  text-shadow: none;
+}
+
+.btn-default:hover {
+  opacity: 0.8;
+  background-color: #6E28C9;
+  color: #fff;
+}
+
+.navbar-form {
+    margin-top: 15px;
+}
+
+.input-group-addon {  
+    color: #FFF;
+    background-color: #6E28C9;
+    border: 1px solid #6E28C9;
+}
+
+.navbar-form .form-control {
+    border: 1px solid #6E28C9;
+}
+
+img.icon {
+    max-width: 20px;
+}

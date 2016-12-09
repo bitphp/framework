@@ -1,0 +1,389 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vistas &mdash; documentación de  - 5.0.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/bitphp.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de  - 5.0.0" href="../index.html"/>
+        <link rel="next" title="Motor de Plantillas Medusa" href="medusa.html"/>
+        <link rel="prev" title="Otros manejadores" href="other-dbs.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Instalación</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Primeros pasos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">Enrutamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">Http</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Cliente MySql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-dbs.html">Otros manejadores</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vistas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crear-una-vista">Crear una vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mostrar-una-vista">Mostrar una vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enviar-parametros-a-las-vistas">Enviar parametros a las vistas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#incluir-vistas-dentro-de-otras-vistas">Incluir vistas dentro de otras vistas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache-de-vistas">Cache de vistas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="medusa.html">Motor de Plantillas Medusa</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Sistema de cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Acceder la configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="url.html">Requested url</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos para Bitphp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib-guide.html">Guia de contribución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html"></a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Vistas</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vistas">
+<h1>Vistas<a class="headerlink" href="#vistas" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="#view-creation"><span class="std std-ref">Crear una vista</span></a></li>
+<li><a class="reference internal" href="#draw-view"><span class="std std-ref">Mostrar una vista</span></a></li>
+<li><a class="reference internal" href="#view-params"><span class="std std-ref">Enviar parametros a las vistas</span></a></li>
+<li><a class="reference internal" href="#view-include"><span class="std std-ref">Incluir vistas dentro de otras vistas</span></a></li>
+<li><a class="reference internal" href="#view-cache"><span class="std std-ref">Cache de vistas</span></a></li>
+</ul>
+<div class="section" id="crear-una-vista">
+<span id="view-creation"></span><h2>Crear una vista<a class="headerlink" href="#crear-una-vista" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La clase <code class="docutils literal"><span class="pre">\Bitphp\Layout\Views</span></code> permite el uso de vistas simples, sin ningún tipo de lenguaje de plantillas. Las plantillas se guardan en la carpeta <code class="docutils literal"><span class="pre">/app/views/sources</span></code> y <strong>deben</strong> tener una extensión <code class="docutils literal"><span class="pre">&lt;nombre&gt;.view.php</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">/app/views/sources/hello.view.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;h1&gt;Hello world!&lt;/h1&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mostrar-una-vista">
+<span id="draw-view"></span><h2>Mostrar una vista<a class="headerlink" href="#mostrar-una-vista" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Layout\Views::draw(string</span> <span class="pre">$view[,</span> <span class="pre">array</span> <span class="pre">$args])</span></code></p>
+<p>El método estatico <code class="docutils literal"><span class="pre">Views::draw()</span></code> recibe como primer parametro el nombre de la vista <strong>sin extensión</strong> y la muestra (<code class="docutils literal"><span class="pre">echo</span></code>):</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Views</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">Views</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span> <span class="c1">// muestra app/views/sources/hello.view.php</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enviar-parametros-a-las-vistas">
+<span id="view-params"></span><h2>Enviar parametros a las vistas<a class="headerlink" href="#enviar-parametros-a-las-vistas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Layout\Views::draw(string</span> <span class="pre">$view[,</span> <span class="pre">array</span> <span class="pre">$args])</span></code></p>
+<p>Envia en el segundo parametro (el cual es opcional) un arreglo de la forma <code class="docutils literal"><span class="pre">array('parametro'</span> <span class="pre">=&gt;</span> <span class="pre">'valor')</span></code> y dentro de la vista podrás usar el parametro como una variable <code class="docutils literal"><span class="pre">$parametro</span></code>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Views</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /:name&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">Views</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">/app/views/sources/hello.view.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;h1&gt;Hello </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$name</span> <span class="cp">?&gt;</span><span class="x">!&lt;/h1&gt;</span>
+</pre></div>
+</div>
+<p>Puedes pasar cualquier tipo de variable, arreglos por ejemplo:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Views</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">Views</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+           <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;barney&#39;</span>
+         <span class="p">,</span> <span class="s1">&#39;age&#39;</span>  <span class="o">=&gt;</span> <span class="mi">25</span>
+         <span class="p">,</span> <span class="s1">&#39;hoobies&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+              <span class="s1">&#39;skateboard&#39;</span>
+            <span class="p">,</span> <span class="s1">&#39;listen to music&#39;</span>
+            <span class="p">,</span> <span class="s1">&#39;watch to xvideos&#39;</span>
+         <span class="p">)</span>
+      <span class="p">)</span>
+   <span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">/app/views/sources/profile.view.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;h1&gt;User: </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="x">&lt;h2&gt;Age: </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x"> years old&lt;/h2&gt;</span>
+<span class="x">&lt;h2&gt;Hoobies:&lt;/h2&gt;</span>
+<span class="x">&lt;ul&gt;</span>
+<span class="x">   </span><span class="cp">&lt;?php</span> <span class="k">foreach</span><span class="p">(</span><span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;hoobies&#39;</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$hooby</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">      &lt;li&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$hooby</span> <span class="cp">?&gt;</span><span class="x">&lt;/li&gt;</span>
+<span class="x">   </span><span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="incluir-vistas-dentro-de-otras-vistas">
+<span id="view-include"></span><h2>Incluir vistas dentro de otras vistas<a class="headerlink" href="#incluir-vistas-dentro-de-otras-vistas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">\Bitphp\Layout\Views::view_include(string</span> <span class="pre">$view)</span></code></p>
+<p>Este método permite insertar el contenido de una vista en otra, y así poder reutilizar código. Podrás utilizarlo dentro de las vistas como <code class="docutils literal"><span class="pre">self::include($view)</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">app/views/sources/items/navbar.view.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;div class=&quot;navbar&quot;&gt;</span>
+<span class="x">   &lt;span class=&quot;navbar-title&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">app/views/sources/profile.view.php</span></code></p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
+<span class="x">   &lt;head&gt;</span>
+<span class="x">      &lt;title&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x"> profile&lt;/title&gt;</span>
+<span class="x">   &lt;/head&gt;</span>
+<span class="x">   &lt;body&gt;</span>
+<span class="x">      </span><span class="cp">&lt;?php</span> <span class="nx">self</span><span class="o">::</span><span class="na">view_include</span><span class="p">(</span><span class="s1">&#39;items/navbar&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">      &lt;div class=&quot;global-container&quot;&gt;</span>
+<span class="x">         About you: &lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;about&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+<span class="x">      &lt;/div&gt;</span>
+<span class="x">   &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">&#39;../autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\Bitphp\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\Bitphp\Layout\Views</span><span class="p">;</span>
+
+<span class="nx">Route</span><span class="o">::</span><span class="na">match</span><span class="p">(</span><span class="s1">&#39;GET /user/:id&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$user</span> <span class="o">=</span> <span class="nx">\Models\Users</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+   <span class="nx">Views</span><span class="o">::</span><span class="na">draw</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Las vistas incluidas tendrán acceso a los parametros qué fueron pasados a la vista principal.</p>
+</div>
+</div>
+<div class="section" id="cache-de-vistas">
+<span id="view-cache"></span><h2>Cache de vistas<a class="headerlink" href="#cache-de-vistas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las vistas pueden usar un sistema de cache y ayudar a reducir la carga del servidor, para activarlo, en el archivo de configuración de la aplicación <code class="docutils literal"><span class="pre">/app/config.json</span></code>, indica el parametro <code class="docutils literal"><span class="pre">views.cache</span></code> como <code class="docutils literal"><span class="pre">true</span></code>, para desactivarlo colocalo como <code class="docutils literal"><span class="pre">false</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">/app/config.json</span></code></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;views.cache&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Puedes indicar el tiempo de vida de los ficheros de cache indicando los <strong>segundos</strong> antes de que el fichero de cache sea desechado, con el parametro de configuración <code class="docutils literal"><span class="pre">view.cache.life</span></code>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;views.cache&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="nt">&quot;views.cache.life&quot;</span><span class="p">:</span> <span class="mi">300</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="medusa.html" class="btn btn-neutral float-right" title="Motor de Plantillas Medusa" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="other-dbs.html" class="btn btn-neutral" title="Otros manejadores" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Eduardo B Romero.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
