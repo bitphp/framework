@@ -18,14 +18,12 @@ Visita la [página de documentación][bitphp-docs] para ver temas de instalació
 Gracias a:
 
 - [Root404 Co]
-- [EnterGeek]
 - [PHP Virtual Academy]
 
 Por ayudar a difundir Bitphp.
 
-[Eduardo]: <mailto://eduardo@root404.com>
-[Root404 Co]: <http://root404.com>
-[EnterGeek]: <https://www.facebook.com/EnterGeekTech>
+[Eduardo]: <mailto://ms7rbeta@gmail.com>
+[Root404 Co]: <https://www.facebook.com/root404DotCom>
 [PHP Virtual Academy]: <https://www.facebook.com/pvacademy>
-[bitphp-home]: <http://bitphp.root404.com>
-[bitphp-docs]: <http://bitphp.root404.com/docs>
+[bitphp-home]: <https://github.com/bitphp>
+[bitphp-docs]: <https://github.com/bitphp/framework/wiki>
