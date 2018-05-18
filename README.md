@@ -25,7 +25,7 @@ Gracias a:
 Por ayudar a difundir Bitphp.
 
 [Eduardo]: <mailto://ms7rbeta@gmail.com>
-[Fernando] <https://github.com/fershopls>
+[Fernando]: <https://github.com/fershopls>
 [Root404 Co]: <https://www.facebook.com/root404DotCom>
 [PHP Virtual Academy]: <https://www.facebook.com/pvacademy>
 [bitphp-home]: <https://github.com/bitphp>
