@@ -92,7 +92,7 @@ class MySqlClient extends Model
       return self::$error === null ? true : false;
    }
 
-   public function delete($match) 
+   public static function delete($match) 
    {
       if(self::$table === null)
          trigger_error('Unespecified table name', E_USER_ERROR);
